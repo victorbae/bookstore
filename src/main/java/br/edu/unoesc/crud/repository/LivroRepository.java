@@ -1,7 +1,6 @@
 package br.edu.unoesc.crud.repository;
 
 import br.edu.unoesc.crud.model.Livro;
-import br.edu.unoesc.crud.model.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

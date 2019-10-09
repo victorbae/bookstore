@@ -1,10 +1,8 @@
 package br.edu.unoesc.crud.service.impl;
 
 import br.edu.unoesc.crud.model.ClienteDTO;
-import br.edu.unoesc.crud.model.Livro;
 import br.edu.unoesc.crud.model.Pessoa;
 import br.edu.unoesc.crud.repository.PessoaRepository;
-import br.edu.unoesc.crud.service.LivroService;
 import br.edu.unoesc.crud.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

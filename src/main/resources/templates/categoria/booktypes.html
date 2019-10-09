@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="partials/_head.html"></head>
-<body class="dark-edition">
-<div class="wrapper ">
-    <div th:insert="partials/_menuEsquerdo.html"></div>
-    <div class="main-panel">
-        <!-- Navbar -->
-        <!-- End Navbar -->
-        <div class="content">
-            <div class="container-fluid">
-                <div th:replace="partials/_alert.html"></div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header card-header-primary row">
-                                <div class="col-7">
-                                    <h4 class="card-title ">Categorias de livros</h4>
-                                    <p class="card-category">Categorias de livros do acervo</p>
-                                </div>
-                                <div class="col-5">
-                                    <button type="button" class="btn btn-primary pull-right add-btn" id="new"><i class="fas fa-plus"></i> Nova categoria
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class=" text-primary">
-                                        <th>Nome</th>
-                                        <th>Livros nesta categoria</th>
-                                        <th class="text-center">Opções</th>
-                                        </thead>
-                                        <tbody>
-                                        <tr th:each="categoria : ${page}" th:if="${!page.empty}">
-                                            <td th:text="${categoria.nome}"></td>
-                                            <td th:text="${categoria.total}"></td>
-                                            <td class="text-center">
-                                                <a class="btn btn-outline-primary btn-sm openModal"
-                                                   style="color: #FFFFFF;" data-toggle="tooltip" data-placement="top"
-                                                   title="Editar"
-                                                   th:data-codigo="${categoria.codigo}"
-                                                   th:data-nome="${categoria.nome}">
-                                                    <i class="fas fa-pencil-alt"></i></a>
-                                                <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
-                                                   data-placement="top" title="Excluir"
-                                                   th:href="@{/booktypes/excluir/{codigo}(codigo=${categoria.codigo})}">
-                                                    <i class="far fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr th:unless="${!page.empty}">
-                                            <td colspan="2">Nenhuma categoria de livro cadastrada</td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div th:insert="categoria/_novo.html"></div>
-        <footer class="footer" th:insert="partials/_footer.html"></footer>
-        <script>
-            const x = new Date().getFullYear();
-            let date = document.getElementById('date');
-            date.innerHTML = '&copy; ' + x + date.innerHTML;
-        </script>
-    </div>
-</div>
-<div th:insert="partials/_conf.html"></div>
-<script th:src="@{/assets/js/core/jquery.min.js}"></script>
-<script th:src="@{/assets/js/core/jquery.mask.js}"></script>
-<script th:src="@{/assets/js/core/popper.min.js}"></script>
-<script th:src="@{/assets/js/core/bootstrap-material-design.min.js}"></script>
-<script src="https://unpkg.com/default-passive-events"></script>
-<script th:src="@{/assets/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<script th:src="@{/assets/js/plugins/chartist.min.js}"></script>
-<script th:src="@{/assets/js/plugins/bootstrap-notify.js}"></script>
-<script th:src="@{/assets/js/material-dashboard.js?v=2.1.0}"></script>
-<script th:src="@{/assets/demo/demo.js}"></script>
-<script th:src="@{/assets/js/scriptCategoria.js}"></script>
-<script th:src="@{/assets/js/scriptConf.js}"></script>
-</body>
+	<head th:replace="partials/_head.html"></head>
+	<body class="dark-edition">
+		<div class="wrapper ">
+		    <div th:insert="partials/_menuEsquerdo.html"></div>
+		    <div class="main-panel">
+		        <!-- Navbar -->
+		        <!-- End Navbar -->
+		        <div class="content">
+		            <div class="container-fluid">
+		                <div th:replace="partials/_alert.html"></div>
+		                <div class="row">
+		                    <div class="col-md-12">
+		                        <div class="card">
+		                            <div class="card-header card-header-primary row">
+		                                <div class="col-7">
+		                                    <h4 class="card-title ">Categorias de livros</h4>
+		                                    <p class="card-category">Categorias de livros do acervo</p>
+		                                </div>
+		                                <div class="col-5">
+		                                    <button type="button" class="btn btn-primary pull-right add-btn" id="new"><i class="fas fa-plus"></i> Nova categoria
+		                                    </button>
+		                                </div>
+		                            </div>
+		                            <div class="card-body">
+		                                <div class="table-responsive">
+		                                    <table class="table">
+		                                        <thead class=" text-primary">
+		                                        <th>Nome</th>
+		                                        <th>Livros nesta categoria</th>
+		                                        <th class="text-center">Opções</th>
+		                                        </thead>
+		                                        <tbody>
+		                                        <tr th:each="categoria : ${page}" th:if="${!page.empty}">
+		                                            <td th:text="${categoria.nome}"></td>
+		                                            <td th:text="${categoria.total}"></td>
+		                                            <td class="text-center">
+		                                                <a class="btn btn-outline-primary btn-sm openModal"
+		                                                   style="color: #FFFFFF;" data-toggle="tooltip" data-placement="top"
+		                                                   title="Editar"
+		                                                   th:data-codigo="${categoria.codigo}"
+		                                                   th:data-nome="${categoria.nome}">
+		                                                    <i class="fas fa-pencil-alt"></i></a>
+		                                                <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
+		                                                   data-placement="top" title="Excluir"
+		                                                   th:href="@{/booktypes/excluir/{codigo}(codigo=${categoria.codigo})}">
+		                                                    <i class="far fa-trash-alt"></i></a>
+		                                            </td>
+		                                        </tr>
+		                                        <tr th:unless="${!page.empty}">
+		                                            <td colspan="2">Nenhuma categoria de livro cadastrada</td>
+		                                        </tr>
+		
+		                                        </tbody>
+		                                    </table>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div th:insert="categoria/_novo.html"></div>
+		        <footer class="footer" th:insert="partials/_footer.html"></footer>
+		        <script>
+		            const x = new Date().getFullYear();
+		            let date = document.getElementById('date');
+		            date.innerHTML = '&copy; ' + x + date.innerHTML;
+		        </script>
+		    </div>
+		</div>
+		<div th:insert="partials/_conf.html"></div>
+		<script th:src="@{/assets/js/core/jquery.min.js}"></script>
+		<script th:src="@{/assets/js/core/jquery.mask.js}"></script>
+		<script th:src="@{/assets/js/core/popper.min.js}"></script>
+		<script th:src="@{/assets/js/core/bootstrap-material-design.min.js}"></script>
+		<script src="https://unpkg.com/default-passive-events"></script>
+		<script th:src="@{/assets/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+		<script th:src="@{/assets/js/plugins/chartist.min.js}"></script>
+		<script th:src="@{/assets/js/plugins/bootstrap-notify.js}"></script>
+		<script th:src="@{/assets/js/material-dashboard.js?v=2.1.0}"></script>
+		<script th:src="@{/assets/demo/demo.js}"></script>
+		<script th:src="@{/assets/js/scriptCategoria.js}"></script>
+		<script th:src="@{/assets/js/scriptConf.js}"></script>
+	</body>
 </html>

@@ -1,6 +1,5 @@
 package br.edu.unoesc.crud.controller;
 
-import br.edu.unoesc.crud.model.Livro;
 import br.edu.unoesc.crud.service.util.BasicCrud;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

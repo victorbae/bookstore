@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class IndexController {
@@ -23,30 +20,14 @@ public class IndexController {
     @GetMapping({"/home", "/", "/dashboard", "/index"})
     public String index(Model model) {
         model.addAttribute("page", aluguelService.listarAbertos());
+        model.addAttribute("livrosDisponiveis", livroService.getQuantidadeLivrosDisponiveis());
+        model.addAttribute("livrosCadastrados", livroService.getQuantidadeLivrosCadastrados());
+        model.addAttribute("livrosAlugados", livroService.getQuantidadeLivrosAlugados());
         return "dashboard";
     }
 
     @GetMapping("/login")
     public String login(){
         return "login";
-    }
-    
-    @GetMapping(value = "/getLivrosdisponiveis")
-    public @ResponseBody Integer getqtd() {
-    	return livroService.getQuantidadeLivrosDisponiveis();
-    
-    }
-    
-    @GetMapping(value = "/getLivrosCadastrados")
-    public @ResponseBody Integer getqtdCadastrados() {
-    	return livroService.getQuantidadeLivrosCadastrados();
-    
-    }
-    
-    @GetMapping(value = "/getLivrosAlugados")
-    public @ResponseBody Integer getqtdAlugados() {
-    	return livroService.getQuantidadeLivrosAlugados();
-    
-    }
-    
+    }    
 }

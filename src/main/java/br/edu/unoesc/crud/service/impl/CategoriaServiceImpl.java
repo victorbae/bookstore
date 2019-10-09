@@ -27,9 +27,9 @@ public class CategoriaServiceImpl implements CategoriaService {
         repository.deleteById(objectId);
     }
 
-    @Override
+	@Override
     public Collection<Categoria> listar() {
-        return (Collection) repository.findAll();
+        return (Collection<Categoria>) repository.findAll();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CategoriaServiceImpl implements CategoriaService {
         return repository.findById(objectId).get();
     }
 
-    @Override
+	@Override
     public Page findPaginated(Pageable page) {
         return this.findAll(page);
     }

@@ -3,20 +3,16 @@ package br.edu.unoesc.crud.model;
 import br.edu.unoesc.crud.model.util.EntidadePersistente;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
-@ToString(of={"nome"})
 public class Pessoa implements EntidadePersistente {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long codigo;
 

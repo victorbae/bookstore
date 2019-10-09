@@ -6,8 +6,6 @@ import br.edu.unoesc.crud.service.util.BasicCrud;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Collection;
-
 public interface PessoaService extends BasicCrud<Pessoa> {
 
     public boolean isAlugando(Long codigo);

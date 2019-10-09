@@ -1,17 +1,13 @@
 package br.edu.unoesc.crud.controller;
 
-import br.edu.unoesc.crud.model.Livro;
 import br.edu.unoesc.crud.model.Pessoa;
 import br.edu.unoesc.crud.service.PessoaService;
-import br.edu.unoesc.crud.service.util.BasicCrud;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.Collection;
 
 @Controller
 @RequestMapping("/person")
