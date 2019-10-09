@@ -17,7 +17,7 @@
                                     <p class="card-category">Exemplares emprestados</p>
                                 </div>
                                 <div class="col-5">
-                                    <button type="button" class="btn btn-primary pull-right" id="new">Novo empréstimo
+                                    <button type="button" class="btn btn-primary pull-right add-btn" id="new"><i class="fas fa-plus"></i> Novo empréstimo
                                     </button>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                                 <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
                                                    data-placement="top" title="Já devolvido"
                                                    th:unless="${emprestimo.emAberto}">
-                                                    <i class="fas fa-check"></i></a>
+                                                    <i class="fas fa-check" style="color:white;"></i></a>
                                             </td>
                                         </tr>
                                         <tr th:unless="${!page.empty}">

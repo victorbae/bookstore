@@ -25,11 +25,7 @@ public class AluguelController extends BasicController<Aluguel> {
     private AluguelService service;
 
     @PostMapping("/salvar")
-    public String emprestar(@Valid Aluguel aluguel, Model model, BindingResult result) {
-        if (result.hasErrors()){
-            String error = result.getFieldErrors().get(0).getDefaultMessage();
-            return super.Error(error, model);
-        }
+    public String emprestar(Aluguel aluguel) {
         service.emprestar(aluguel);
         return "redirect:/rents/";
     }

@@ -28,10 +28,10 @@ public class Aluguel implements EntidadePersistente {
     @ManyToOne
     private Pessoa pessoa;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate emprestimo = LocalDate.now();
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Future
     private LocalDate devolucao;
 

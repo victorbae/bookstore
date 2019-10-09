@@ -22068,4 +22068,8 @@ fieldset[disabled][disabled] .dark-edition .has-error .form-control,
   }
 }
 
+
+.add-btn {
+  background-color: darkgray !important;
+}
 /*# sourceMappingURL=dashboard-free.css.map */
