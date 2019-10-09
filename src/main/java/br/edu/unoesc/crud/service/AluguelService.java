@@ -12,7 +12,7 @@ public interface AluguelService extends BasicCrud<Aluguel> {
 
     void renovar(Long codigo);
 
-    void devolver(Long codigo);
+    boolean devolver(Long codigo);
 
     Collection<Aluguel> listarAbertos();
 }

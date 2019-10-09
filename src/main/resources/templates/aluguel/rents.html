@@ -1,92 +1,94 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-	<head th:replace="partials/_head.html"></head>	
-	<body class="dark-edition">
-		<div class="wrapper ">
-		    <div th:insert="partials/_menuEsquerdo.html"></div>
-		    <div class="main-panel">
-		        <div class="content">
-		            <div class="container-fluid">
-		                <div th:replace="partials/_alert.html"></div>
-		                <div class="row">
-		                    <div class="col-md-12">
-		                        <div class="card">
-		                            <div class="card-header card-header-primary row">
-		                                <div class="col-7">
-		                                    <h4 class="card-title ">Empréstimos</h4>
-		                                    <p class="card-category">Exemplares emprestados</p>
-		                                </div>
-		                                <div class="col-5">
-		                                    <button type="button" class="btn btn-primary pull-right" id="new">Novo empréstimo
-		                                    </button>
-		                                </div>
-		                            </div>
-		                            <div class="card-body">
-		                                <div class="table-responsive">
-		                                    <table class="table">
-		                                        <thead class=" text-primary">
-		                                        <th>Nome</th>
-		                                        <th>Livro</th>
-		                                        <th>Data Empréstimo</th>
-		                                        <th>Data Devolução</th>
-		                                        <th>Situação</th>
-		                                        <th class="text-center">Opções</th>
-		                                        </thead>
-		                                        <tbody>
-		                                        <tr th:each="emprestimo : ${page}"  th:if="${!page.empty}">
-		                                            <td th:text="${emprestimo.pessoa}"></td>
-		                                            <td th:text="${emprestimo.livro}"></td>
-		                                            <td th:text="${emprestimo.emprestimo}"></td>
-		                                            <td th:text="${emprestimo.devolucao}"></td>
-		                                            <td th:text="${emprestimo.situacao}"></td>
-		                                            <td class="text-center">
-		                                                <a class="btn btn-outline-primary btn-sm" data-toggle="tooltip"
-		                                                   data-placement="top" title="Editar" th:if="${emprestimo.emAberto}"
-		                                                   th:href="@{/rents/renovar/{codigo}(codigo=${emprestimo.codigo})}">
-		                                                    <i class="fas fa-redo-alt"></i></a>
-		                                                <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
-		                                                   data-placement="top" title="Devolver" th:if="${emprestimo.emAberto}"
-		                                                   th:href="@{/rents/devolver/{codigo}(codigo=${emprestimo.codigo})}">
-		                                                    <i class="fas fa-clipboard-check"></i></a>
-		                                                <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
-		                                                   data-placement="top" title="Já devolvido" th:unless="${emprestimo.emAberto}">
-		                                                    <i class="fas fa-check"></i></a>
-		                                            </td>
-		                                        </tr>
-		                                        <tr th:unless="${!page.empty}">
-		                                            <td colspan="6">Nenhum empréstimo cadastrado</td>
-		                                        </tr>
-		                                        </tbody>
-		                                    </table>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		        <div th:insert="aluguel/_novo.html"></div>
-		        <footer class="footer" th:insert="partials/_footer.html"></footer>
-		        <script>
-		            const x = new Date().getFullYear();
-		            let date = document.getElementById('date');
-		            date.innerHTML = '&copy; ' + x + date.innerHTML;
-		        </script>
-		    </div>
-		</div>
-		<div th:insert="partials/_conf.html"></div>
-		<script th:src="@{/assets/js/core/jquery.min.js}"></script>
-		<script th:src="@{/assets/js/core/popper.min.js}"></script>
-		<script th:src="@{/assets/js/core/bootstrap-material-design.min.js}"></script>
-		<script src="https://unpkg.com/default-passive-events"></script>
-		<script th:src="@{/assets/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
-		<script async defer src="https://buttons.github.io/buttons.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/jquery.easy-autocomplete.js"></script>
-		<script th:src="@{/assets/js/plugins/chartist.min.js}"></script>
-		<script th:src="@{/assets/js/plugins/bootstrap-notify.js}"></script>
-		<script th:src="@{/assets/js/material-dashboard.js?v=2.1.0}"></script>
-		<script th:src="@{/assets/demo/demo.js}"></script>
-		<script th:src="@{/assets/js/scriptAluguel.js}"></script>
-		<script th:src="@{/assets/js/scriptConf.js}"></script>
-	</body>
+<head th:replace="partials/_head.html"></head>
+<body class="dark-edition">
+<div class="wrapper ">
+    <div th:insert="partials/_menuEsquerdo.html"></div>
+    <div class="main-panel">
+        <div class="content">
+            <div class="container-fluid">
+                <div th:replace="partials/_alert.html"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-primary row">
+                                <div class="col-7">
+                                    <h4 class="card-title ">Empréstimos</h4>
+                                    <p class="card-category">Exemplares emprestados</p>
+                                </div>
+                                <div class="col-5">
+                                    <button type="button" class="btn btn-primary pull-right" id="new">Novo empréstimo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                        <th>Nome</th>
+                                        <th>Livro</th>
+                                        <th>Data Empréstimo</th>
+                                        <th>Data Devolução</th>
+                                        <th>Situação</th>
+                                        <th class="text-center">Opções</th>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="emprestimo : ${page}" th:if="${!page.empty}">
+                                            <td th:text="${emprestimo.pessoa}"></td>
+                                            <td th:text="${emprestimo.livro}"></td>
+                                            <td th:text="${emprestimo.emprestimo}"></td>
+                                            <td th:text="${emprestimo.devolucao}"></td>
+                                            <td th:text="${emprestimo.situacao}"></td>
+                                            <td class="text-center">
+                                                <a class="btn btn-outline-primary btn-sm" data-toggle="tooltip"
+                                                   data-placement="top" title="Editar" th:if="${emprestimo.emAberto}"
+                                                   th:href="@{/rents/renovar/{codigo}(codigo=${emprestimo.codigo})}">
+                                                    <i class="fas fa-redo-alt"></i></a>
+                                                <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
+                                                   data-placement="top" title="Devolver" th:if="${emprestimo.emAberto}"
+                                                   th:href="@{/rents/devolver/{codigo}(codigo=${emprestimo.codigo})}">
+                                                    <i class="fas fa-clipboard-check"></i></a>
+                                                <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
+                                                   data-placement="top" title="Já devolvido"
+                                                   th:unless="${emprestimo.emAberto}">
+                                                    <i class="fas fa-check"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr th:unless="${!page.empty}">
+                                            <td colspan="6">Nenhum empréstimo cadastrado</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:insert="aluguel/_novo.html"></div>
+        <footer class="footer" th:insert="partials/_footer.html"></footer>
+        <script>
+            const x = new Date().getFullYear();
+            let date = document.getElementById('date');
+            date.innerHTML = '&copy; ' + x + date.innerHTML;
+        </script>
+    </div>
+</div>
+<div th:insert="partials/_conf.html"></div>
+<script th:src="@{/assets/js/core/jquery.min.js}"></script>
+<script th:src="@{/assets/js/core/jquery.mask.js}"></script>
+<script th:src="@{/assets/js/core/popper.min.js}"></script>
+<script th:src="@{/assets/js/core/bootstrap-material-design.min.js}"></script>
+<script src="https://unpkg.com/default-passive-events"></script>
+<script th:src="@{/assets/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/easy-autocomplete/1.3.5/jquery.easy-autocomplete.js"></script>
+<script th:src="@{/assets/js/plugins/chartist.min.js}"></script>
+<script th:src="@{/assets/js/plugins/bootstrap-notify.js}"></script>
+<script th:src="@{/assets/js/material-dashboard.js?v=2.1.0}"></script>
+<script th:src="@{/assets/demo/demo.js}"></script>
+<script th:src="@{/assets/js/scriptAluguel.js}"></script>
+<script th:src="@{/assets/js/scriptConf.js}"></script>
+</body>
 </html>

@@ -1,5 +1,8 @@
 <div class="row justify-content-center">
-    <div th:if="${msg != null}" class="alert alert-danger col-11" role="alert">
-        <span th:text="${msg}"></span>
+    <div th:if="${success != null}" class="alert alert-success col-11" role="alert">
+        <span th:text="${success}"></span>
+    </div>
+    <div th:if="${error != null}" class="alert alert-error col-11" role="alert">
+        <span th:text="${error}"></span>
     </div>
 </div>
