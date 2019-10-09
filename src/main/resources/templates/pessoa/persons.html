@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head th:replace="partials/_head.html"></head>
+	<body class="dark-edition">
+		<div class="wrapper ">
+		    <div th:insert="partials/_menuEsquerdo.html"></div>
+		    <div class="main-panel">
+		        <div class="content">
+		            <div class="container-fluid">
+		                <div th:replace="partials/_alert.html"></div>
+		                <div class="row">
+		                    <div class="col-md-12">
+		                        <div class="card">
+		                            <div class="card-header card-header-primary row">
+		                                <div class="col-7">
+		                                    <h4 class="card-title ">Clientes</h4>
+		                                    <p class="card-category">Clientes da biblioteca</p>
+		                                </div>
+		                                <div class="col-5">
+		                                    <button type="button" class="btn btn-primary pull-right" id="new">Novo cliente
+		                                    </button>
+		                                </div>
+		                            </div>
+		                            <div class="card-body">
+		                                <div class="table-responsive">
+		                                    <table class="table">
+		                                        <thead class=" text-primary">
+		                                        <th>Nome</th>
+		                                        <th>Telefone</th>
+		                                        <th>Total de emprestimos</th>
+		                                        <th>Emprestimos Ativos</th>
+		                                        <th>Emprestimos Atrasados</th>
+		                                        <th class="text-center">Opções</th>
+		                                        </thead>
+		                                        <tbody>
+		                                        <tr th:each="pessoa : ${page}" th:if="${!page.empty}">
+		                                            <td th:text="${pessoa.nome}"></td>
+		                                            <td th:text="${pessoa.telefone}"></td>
+		                                            <td th:text="${pessoa.total}"></td>
+		                                            <td th:text="${pessoa.ativos}"></td>
+		                                            <td th:text="${pessoa.atrasados}"></td>
+		                                            <td class="text-center">
+		                                                <a class="btn btn-outline-primary btn-sm openModal"
+		                                                   style="color: #FFFFFF;" data-toggle="tooltip"
+		                                                   data-placement="top" title="Editar"
+		                                                   th:data-codigo="${pessoa.codigo}"
+		                                                   th:data-telefone="${pessoa.telefone}"
+		                                                   th:data-nome="${pessoa.nome}">
+		                                                    <i class="fas fa-pencil-alt"></i></a>
+		                                                <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
+		                                                   data-placement="top" title="Excluir"
+		                                                   th:href="@{/person/excluir/{codigo}(codigo=${pessoa.codigo})}">
+		                                                    <i class="far fa-trash-alt"></i></a>
+		                                            </td>
+		                                        </tr>
+		                                        <tr th:unless="${!page.empty}">
+		                                            <td colspan="5">Nenhum cliente pendente</td>
+		                                        </tr>
+		                                        </tbody>
+		                                    </table>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <div th:insert="pessoa/_novo.html"></div>
+				<footer class="footer" th:insert="partials/_footer.html"></footer>
+		        <script>
+		            const x = new Date().getFullYear();
+		            let date = document.getElementById('date');
+		            date.innerHTML = '&copy; ' + x + date.innerHTML;
+		        </script>
+		    </div>
+		</div>
+		<div th:insert="partials/_conf.html"></div>
+		<script th:src="@{/assets/js/core/jquery.min.js}"></script>
+		<script th:src="@{/assets/js/core/popper.min.js}"></script>
+		<script th:src="@{/assets/js/core/bootstrap-material-design.min.js}"></script>
+		<script src="https://unpkg.com/default-passive-events"></script>
+		<script th:src="@{/assets/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+		<script th:src="@{/assets/js/plugins/chartist.min.js}"></script>
+		<script th:src="@{/assets/js/plugins/bootstrap-notify.js}"></script>
+		<script th:src="@{/assets/js/material-dashboard.js?v=2.1.0}"></script>
+		<script th:src="@{/assets/demo/demo.js}"></script>
+		<script th:src="@{/assets/js/scriptPessoa.js}"></script>
+		<script th:src="@{/assets/js/scriptConf.js}"></script>
+	</body>
+</html>
