@@ -1,0 +1,32 @@
+<!-- Modal -->
+<div class="modal fade" id="novoBookType" tabindex="-1" role="dialog" aria-labelledby="novoBookType" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Nova categoria de livros</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form th:action="@{/booktypes/salvar}" th:object="${newBookType}" method="post">
+                        <div class="row justify-content-center">
+                            <div class="col-11 col-md-9">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Nome</label>
+                                    <input type="hidden" th:field="*{codigo}" class="form-control text-dark" id="modal-codigo"
+                                           th:value="*{codigo}"/>
+                                    <input th:field="*{nome}" required="true" type="text" class="form-control text-dark"
+                                           id="modal-nome" th:value="*{nome}">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

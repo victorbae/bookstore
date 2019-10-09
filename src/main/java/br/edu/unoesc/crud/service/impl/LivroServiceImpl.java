@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 
 @Service
@@ -74,5 +73,29 @@ class LivroServiceImpl implements LivroService {
         livro = this.findOne(livro.getCodigo());
         livro.setQuantidade(livro.getQuantidade() + 1);
         this.salvar(livro);
+    }
+    
+    public Integer getQuantidadeLivrosCadastrados() {
+    	int d= 0;
+    	for (Livro livro : this.listar()) {
+			d += livro.getQtdOriginal();
+		}
+    	return d;
+    }
+    
+    public Integer getQuantidadeLivrosAlugados() {
+		int i= 0;
+    	for (Livro livro : this.listar()) {
+			i += livro.getEmprestados();
+		}
+    	return i;
+    }
+    
+    public Integer getQuantidadeLivrosDisponiveis() {
+		int d= 0;
+    	for (Livro livro : this.listar()) {
+			d += livro.getDisponivel();
+		}
+    	return d;
     }
 }

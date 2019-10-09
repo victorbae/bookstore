@@ -12,4 +12,10 @@ public interface LivroService extends BasicCrud<Livro> {
     void devolver(Livro livro);
 
     public boolean isEmprestado(Long objectId);
+    
+    public Integer getQuantidadeLivrosCadastrados();
+    
+    public Integer getQuantidadeLivrosAlugados();
+    
+    public Integer getQuantidadeLivrosDisponiveis();
 }

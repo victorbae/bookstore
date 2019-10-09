@@ -64,14 +64,14 @@
 	                    </div>
 	                </div>
 	            </div>	
-	            <div th:insert="livro/_novo.html"></div>
-		      	<footer class="footer" th:insert="partials/_footer.html"></footer>
-	            <script>
-	                const x = new Date().getFullYear();
-	                let date = document.getElementById('date');
-	                date.innerHTML = '&copy; ' + x + date.innerHTML;
-	            </script>
 	        </div>
+			<div th:insert="livro/_novo.html"></div>
+		    <footer class="footer" th:insert="partials/_footer.html"></footer>
+	        <script>
+	        	const x = new Date().getFullYear();
+	            let date = document.getElementById('date');
+	            date.innerHTML = '&copy; ' + x + date.innerHTML;
+	        </script>
 	    </div>
 	    <div th:insert="partials/_conf.html"></div>
 	    <script th:src="@{/assets/js/core/jquery.min.js}"></script>

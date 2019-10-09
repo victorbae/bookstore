@@ -5,8 +5,6 @@
 		<div class="wrapper ">
 		    <div th:insert="partials/_menuEsquerdo.html"></div>
 		    <div class="main-panel">
-		        <!-- Navbar -->
-		        <!-- End Navbar -->
 		        <div class="content">
 		            <div class="container-fluid">
 		                <div th:replace="partials/_alert.html"></div>
@@ -46,7 +44,6 @@
 		                                        <tr th:unless="${!page.empty}">
 		                                            <td colspan="2">Nenhuma categoria de livro cadastrada</td>
 		                                        </tr>
-		
 		                                        </tbody>
 		                                    </table>
 		                                </div>

@@ -1,5 +1,5 @@
 .footer{
-    padding: $padding-general-x 0;
+    padding: 0;
     text-align: center;
     display: -webkit-flex; /* Safari */ /* Safari 6.1+ */
     display: flex;
@@ -67,7 +67,7 @@
     .footer-brand{
         float: left;
         height: 50px;
-        padding: 15px 15px;
+        padding: 0px 0px;
         font-size: 18px;
         line-height: 20px;
         margin-left: -15px;
@@ -78,7 +78,7 @@
         }
     }
     .copyright{
-        padding: 15px 0;
+        padding: 0px 0;
         .material-icons{
             font-size: 18px;
             position: relative;
