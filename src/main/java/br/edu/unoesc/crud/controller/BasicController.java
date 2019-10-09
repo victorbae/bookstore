@@ -41,10 +41,20 @@ public abstract class BasicController<T> {
         return !objects.isEmpty() ? objects : Arrays.asList(getService().getEmptyList());
     }
 
-    protected String toIndex(String param, Model model) {
-        model.addAttribute("msg", param);
+    protected String Error(String param, Model model) {
+        model.addAttribute("error", param);
+        return toIndex(model);
+    }
+
+    protected String Success(String param, Model model) {
+        model.addAttribute("success", param);
+        return toIndex(model);
+    }
+
+    private String toIndex(Model model){
         Page<T> pageContent = getService().findPaginated(PageRequest.of(0, 12));
         model.addAttribute("page", pageContent);
+        imports(model);
         return getListPageName();
     }
 

@@ -32,10 +32,9 @@ public class LivroController extends BasicController<Livro> {
     public String excluir(@PathVariable Long codigo, Model model) {
         if (!service.isEmprestado(codigo)){
             service.excluir(codigo);
-            return "redirect:/books/";
+            return Success("Livro excluido com sucesso", model);
         }else{
-            return toIndex("O livro não pode ser excluído pois está associado à um empréstimo", model);
-
+            return Error("O livro não pode ser excluído pois está associado à um empréstimo", model);
         }
     }
 

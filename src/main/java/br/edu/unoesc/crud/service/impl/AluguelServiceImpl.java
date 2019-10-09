@@ -68,11 +68,16 @@ class AluguelServiceImpl implements AluguelService {
     }
 
     @Override
-    public void devolver(Long codigo) {
-        Aluguel all = this.findOne(codigo);
-        livroService.devolver(all.getLivro());
-        all.setEmAberto(false);
-        this.salvar(all);
+    public boolean devolver(Long codigo) {
+        try {
+            Aluguel all = this.findOne(codigo);
+            livroService.devolver(all.getLivro());
+            all.setEmAberto(false);
+            this.salvar(all);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
     @Override

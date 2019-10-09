@@ -31,9 +31,9 @@ public class CategoriaController extends BasicController<Categoria> {
     public String excluir(@PathVariable Long codigo, Model model) {
         if (!service.temAlgumLivro(codigo)){
             service.excluir(codigo);
-            return "redirect:/booktypes/";
+            return Error("Categoria excluida com sucesso", model);
         }else{
-           return toIndex("Esta categoria não pode ser excluida pos existem livros associados à ela", model);
+           return Error("Esta categoria não pode ser excluida pos existem livros associados à ela", model);
         }
 
     }
