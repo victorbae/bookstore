@@ -5,12 +5,13 @@ import br.edu.unoesc.crud.service.EstoqueService;
 import br.edu.unoesc.crud.service.LivroService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class IndexController {
+public class IndexController  implements ErrorController{
 
     @Autowired
     private AluguelService aluguelService;
@@ -28,5 +29,12 @@ public class IndexController {
     @GetMapping("/login")
     public String login(){
         return "login";
-    }    
+    }
+
+	@Override
+	public String getErrorPath() {
+		// TODO Auto-generated method stub
+		return "erro";
+	}
+    
 }

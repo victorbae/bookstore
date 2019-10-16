@@ -11,37 +11,24 @@
 	            <div class="col-xl-4 col-lg-12">
 	              <div class="card card-chart">
 	                <div class="card-header card-header-success text-center">
-	                 <h1 th:text="${dto.livrosCadastrados}"></h1>
-	                </div>
-	                <div class="card-body">
-	                  <a class="card-title" href="/books/">Total de Livros</a>
-	                  <p class="card-category">
-	                </div>
-	                <div class="card-footer">
+	                 <h2 class="display-4">Livros no acervo</h2>
+	                 <h1 class="display-2" th:text="${dto.livrosCadastrados}"></h1>
 	                </div>
 	              </div>
 	            </div>
 	            <div class="col-xl-4 col-lg-12">
 	              <div class="card card-chart">
 	                <div class="card-header card-header-warning text-center">
-	                  <h1 th:text="${dto.livrosDisponiveis}"></h1>
-	                </div>
-	                <div class="card-body">
-	                  <a class="card-title" href="/rents/">Livros Disponíveis</a>
-	                </div>
-	                <div class="card-footer">
+						<h2 class="display-4">Livros disponíveis</h2>
+						<h1 class="display-2" th:text="${dto.livrosDisponiveis}"></h1>
 	                </div>
 	              </div>
 	            </div>
 	            <div class="col-xl-4 col-lg-12">
 	              <div class="card card-chart">
 	                <div class="card-header card-header-danger text-center">
-	                  <h1 th:text="${dto.livrosAlugados}"></h1>
-	                </div>
-	                <div class="card-body">
-	                  <a class="card-title" href="/person/">Livros Alugados</a>
-	                </div>
-	                <div class="card-footer">
+						<h2 class="display-4">Livros alugados</h2>
+						<h1 class="display-2" th:text="${dto.livrosAlugados}"></h1>
 	                </div>
 	              </div>
 	            </div>
