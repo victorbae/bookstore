@@ -27,9 +27,9 @@ public class PessoaController extends BasicController<Pessoa> {
     public String excluir(@PathVariable Long codigo, Model model) {
         if (!service.isAlugando(codigo)) {
             service.excluir(codigo);
-            return Success("Cliente excluido com sucesso", model);
+            return success("Cliente excluido com sucesso", model);
         } else {
-            return Error("O cliente não pode ser excluído pois está associado à um empréstimo", model);
+            return error("O cliente não pode ser excluído pois está associado à um empréstimo", model);
         }
     }
 

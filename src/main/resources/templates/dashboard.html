@@ -10,8 +10,8 @@
 	          <div class="row">
 	            <div class="col-xl-4 col-lg-12">
 	              <div class="card card-chart">
-	                <div class="card-header card-header-success">
-	                 <h1 th:text="${livrosCadastrados}"></h1>
+	                <div class="card-header card-header-success text-center">
+	                 <h1 th:text="${dto.livrosCadastrados}"></h1>
 	                </div>
 	                <div class="card-body">
 	                  <a class="card-title" href="/books/">Total de Livros</a>
@@ -23,8 +23,8 @@
 	            </div>
 	            <div class="col-xl-4 col-lg-12">
 	              <div class="card card-chart">
-	                <div class="card-header card-header-warning">
-	                  <h1 th:text="${livrosDisponiveis}"></h1>
+	                <div class="card-header card-header-warning text-center">
+	                  <h1 th:text="${dto.livrosDisponiveis}"></h1>
 	                </div>
 	                <div class="card-body">
 	                  <a class="card-title" href="/rents/">Livros Disponíveis</a>
@@ -35,8 +35,8 @@
 	            </div>
 	            <div class="col-xl-4 col-lg-12">
 	              <div class="card card-chart">
-	                <div class="card-header card-header-danger">
-	                  <h1 th:text="${livrosAlugados}"></h1>
+	                <div class="card-header card-header-danger text-center">
+	                  <h1 th:text="${dto.livrosAlugados}"></h1>
 	                </div>
 	                <div class="card-body">
 	                  <a class="card-title" href="/person/">Livros Alugados</a>

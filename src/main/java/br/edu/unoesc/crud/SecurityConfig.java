@@ -21,6 +21,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .roles("ADMIN")
                 .and()
                 .passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
+
+
+      //  auth.userDetailsService(service).passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
     }
 
     @Override

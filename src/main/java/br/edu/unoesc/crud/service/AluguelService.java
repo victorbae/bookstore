@@ -7,7 +7,6 @@ import java.util.Collection;
 
 public interface AluguelService extends BasicCrud<Aluguel> {
 
-
     void emprestar(Aluguel aluguel);
 
     void renovar(Long codigo);

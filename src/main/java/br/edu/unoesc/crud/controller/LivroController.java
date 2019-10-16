@@ -27,9 +27,9 @@ public class LivroController extends BasicController<Livro> {
     public String excluir(@PathVariable Long codigo, Model model) {
         if (!service.isEmprestado(codigo)){
             service.excluir(codigo);
-            return Success("Livro excluido com sucesso", model);
+            return success("Livro excluido com sucesso", model);
         }else{
-            return Error("O livro não pode ser excluído pois está associado à um empréstimo", model);
+            return error("O livro não pode ser excluído pois está associado à um empréstimo", model);
         }
     }
 

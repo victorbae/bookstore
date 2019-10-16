@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -21,6 +22,7 @@ class AluguelServiceImpl implements AluguelService {
     @Autowired
     private LivroService livroService;
 
+    @Transactional
     @Override
     public void emprestar(Aluguel object) {
         if (livroService.temDisponibilidade(object.getLivro())) {
@@ -59,6 +61,7 @@ class AluguelServiceImpl implements AluguelService {
         return null;
     }
 
+    @Transactional
     @Override
     public void renovar(Long codigo) {
         LocalDate pluss = LocalDate.now().plusDays(30);
@@ -67,6 +70,7 @@ class AluguelServiceImpl implements AluguelService {
         this.salvar(all);
     }
 
+    @Transactional
     @Override
     public boolean devolver(Long codigo) {
         try {

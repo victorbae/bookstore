@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @Data
 public class Aluguel implements EntidadePersistente {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long codigo;
 
@@ -26,10 +26,10 @@ public class Aluguel implements EntidadePersistente {
     @ManyToOne
     private Pessoa pessoa;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate emprestimo = LocalDate.now();
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Future
     private LocalDate devolucao;
 

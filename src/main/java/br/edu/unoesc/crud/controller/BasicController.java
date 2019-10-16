@@ -40,12 +40,12 @@ public abstract class BasicController<T> {
         return !objects.isEmpty() ? objects : Arrays.asList(getService().getEmptyList());
     }
 
-    protected String Error(String param, Model model) {
+    protected String error(String param, Model model) {
         model.addAttribute("error", param);
         return toIndex(model);
     }
 
-    protected String Success(String param, Model model) {
+    protected String success(String param, Model model) {
         model.addAttribute("success", param);
         return toIndex(model);
     }

@@ -6,10 +6,10 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 
 @RequestMapping("/rents")
@@ -21,7 +21,10 @@ public class AluguelController extends BasicController<Aluguel> {
     private AluguelService service;
 
     @PostMapping("/salvar")
-    public String emprestar(Aluguel aluguel) {
+    public String emprestar(@Valid @ModelAttribute Aluguel aluguel, BindingResult result, Model model) {
+        if (result.hasErrors())
+            return error("Ops, ocorreu um erro ao realizar o empréstimo, tente novamente mais tarde :)", model);
+
         service.emprestar(aluguel);
         return "redirect:/rents/";
     }
@@ -29,9 +32,9 @@ public class AluguelController extends BasicController<Aluguel> {
     @GetMapping("/devolver/{codigo}")
     public String devolver(@PathVariable Long codigo, Model model) {
         if(service.devolver(codigo)){
-            return Success("O empréstimo foi finalizado com sucesso", model);
+            return success("O empréstimo foi finalizado com sucesso", model);
         }else{
-            return Error("Ops, ocorreu um erro ao finalizar o empréstimo, tente novamente mais tarde", model);
+            return error("Ops, ocorreu um erro ao finalizar o empréstimo, tente novamente mais tarde", model);
         }
     }
 
