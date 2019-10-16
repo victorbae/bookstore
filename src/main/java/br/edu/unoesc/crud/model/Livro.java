@@ -48,5 +48,4 @@ public class Livro implements EntidadePersistente {
     public String toString() {
         return nome;
     }
-
 }

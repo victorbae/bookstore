@@ -1,16 +1,7 @@
 
     $(document).ready(function () {
         $('.date').mask('00/00/0000');
-        $('#new').on('click', function () {
-            $('#modal-codigo').val('');
-            $('#modal-nomeCliente').val('');
-            $('#modal-codigoCliente').val('');
-            $('#modal-codigoLivro').val('');
-            $('#modal-nomeLivro').val('');
-            $('#modal-devolucao').val('');
-            $('#novoRent').modal('show');
-        });
-
+    
         var optionsPeople = {
             url: function (phrase) {
                 return 'http://localhost:8080/person/getList';
@@ -20,8 +11,8 @@
             },
             list: {
                 onSelectItemEvent: function () {
-                    var codigo = $("#novoRent #modal-nomeCliente").getSelectedItemData().codigo;
-                    $('#novoRent #modal-codigoCliente').val(codigo);
+                    var codigo = $("#nomeCliente").getSelectedItemData().codigo;
+                    $('#codigoCliente').val(codigo);
                 }
             },
             ajaxSettings: {
@@ -32,7 +23,7 @@
                 }
             },
             preparePostData: function (data) {
-                data.phrase = $("#novoRent #modal-nomeCliente").val();
+                data.phrase = $("#nomeCliente").val();
                 return data;
             },
             requestDelay: 400
@@ -47,8 +38,8 @@
             },
             list: {
                 onSelectItemEvent: function () {
-                    var codigo = $("#novoRent #modal-nomeLivro").getSelectedItemData().codigo;
-                    $('#novoRent #modal-codigoLivro').val(codigo);
+                    var codigo = $("#nomeLivro").getSelectedItemData().codigo;
+                    $('#codigoLivro').val(codigo);
                 }
             },
             ajaxSettings: {
@@ -59,13 +50,13 @@
                 }
             },
             preparePostData: function (data) {
-                data.phrase = $("#novoRent #modal-nomeLivro").val();
+                data.phrase = $("#nomeLivro").val();
                 return data;
             },
             requestDelay: 400
         };
-        $("#novoRent #modal-nomeCliente").easyAutocomplete(optionsPeople);
-        $("#novoRent #modal-nomeLivro").easyAutocomplete(optionsBooks);
+        $("#nomeCliente").easyAutocomplete(optionsPeople);
+        $("#nomeLivro").easyAutocomplete(optionsBooks);
 
         $('.coloca-width-no-porco-dio').find('.easy-autocomplete').removeAttr("style");
     })
