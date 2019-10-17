@@ -59,9 +59,4 @@
         $("#nomeLivro").easyAutocomplete(optionsBooks);
 
         $('.coloca-width-no-porco-dio').find('.easy-autocomplete').removeAttr("style");
-
-        $('#devolucao').on('input', function(){
-            $('#devolucao').removeClass('transparent');
-            $('#devolucao').addClass('white22');
-        })
     })

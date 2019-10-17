@@ -17,7 +17,7 @@
                                     <p class="card-category">Exemplares emprestados</p>
                                 </div>
                                 <div class="col-2 pull-right">
-									<a href="novo" class="btn btn-primary active add-btn" role="button" aria-pressed="true"><i class="fas fa-plus"></i> Novo empréstimo</a>
+									<a href="/rents/novo" class="btn btn-primary active add-btn" role="button" aria-pressed="true"><i class="fas fa-plus"></i> Novo empréstimo</a>
 								</div>
                             </div>
                             <div class="card-body">
@@ -39,10 +39,6 @@
                                             <td th:text="${emprestimo.devolucao}"></td>
                                             <td th:text="${emprestimo.situacao}"></td>
                                             <td class="text-center">
-                                                <a class="btn btn-outline-primary btn-sm" data-toggle="tooltip"
-                                                   data-placement="top" title="Editar" th:if="${emprestimo.emAberto}"
-                                                   th:href="@{/rents/renovar/{codigo}(codigo=${emprestimo.codigo})}">
-                                                    <i class="fas fa-redo-alt"></i></a>
                                                 <a class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
                                                    data-placement="top" title="Devolver" th:if="${emprestimo.emAberto}"
                                                    th:href="@{/rents/devolver/{codigo}(codigo=${emprestimo.codigo})}">
